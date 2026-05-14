@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Insurance Calculator - Estimate Your Travel Insurance Cost</title>
+  <meta name="description" content="Free travel insurance calculator. Estimate your trip insurance cost based on destination, trip cost, duration, and coverage options.">
+  <meta name="keywords" content="travel insurance calculator, trip insurance cost, flight insurance estimator, vacation insurance premium, travel medical insurance">
+  <link rel="canonical" href="https://insure.wiseclick.site/travel-insurance-calculator/">
+  <meta property="og:title" content="Travel Insurance Calculator - Estimate Your Trip Insurance Cost">
+  <meta property="og:description" content="Estimate your travel insurance premium based on trip cost, destination, and duration. Free, no sign-up required.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Travel Insurance Calculator",
+    "description": "Free travel insurance premium estimator",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does travel insurance cost?", "acceptedAnswer": { "@type": "Answer", "text": "Travel insurance typically costs 4-10% of your total trip cost. A $5,000 trip usually costs $200-$500 to insure, depending on coverage level, destination, and traveler age." } },
+      { "@type": "Question", "name": "What does travel insurance cover?", "acceptedAnswer": { "@type": "Answer", "text": "Standard plans cover trip cancellation, trip interruption, medical emergencies, emergency evacuation, baggage loss, and travel delays. Premium plans add cancel-for-any-reason coverage." } },
+      { "@type": "Question", "name": "Do I need travel insurance?", "acceptedAnswer": { "@type": "Answer", "text": "Travel insurance is recommended for international trips, expensive prepaid vacations, cruises, or if you have health conditions. It protects your investment from unexpected cancellations and medical emergencies abroad." } }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        InsureWise
+      </a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/auto-insurance-calculator/">Auto</a></li>
+        <li><a href="/life-insurance-calculator/">Life</a></li>
+        <li><a href="/home-insurance-calculator/">Home</a></li>
+        <li><a href="/health-insurance-calculator/">Health</a></li>
+        <li><a href="/pet-insurance-calculator/">Pet</a></li>
+        <li><a href="/travel-insurance-calculator/" class="active">Travel</a></li>
+        <li><a href="/insurance-needs-calculator/">Needs</a></li>
+        <li><a href="/deductible-vs-premium-calculator/">Deductible</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <nav class="breadcrumb"><a href="/">Home</a> / <span>Travel Insurance Calculator</span></nav>
+    <div class="calc-page">
+      <h1>Travel Insurance Calculator</h1>
+      <p class="subtitle">Estimate your travel insurance cost based on your trip details, destination, and coverage preferences.</p>
+      <div class="calc-tool">
+        <form class="calc-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="trip-cost">Total Prepaid Trip Cost ($)</label>
+            <input type="number" id="trip-cost" value="3000" min="100" step="100">
+          </div>
+          <div class="form-group">
+            <label for="trip-length">Trip Duration</label>
+            <select id="trip-length">
+              <option value="1-3">1-3 days</option>
+              <option value="4-7" selected>4-7 days</option>
+              <option value="8-14">8-14 days</option>
+              <option value="15-30">15-30 days</option>
+              <option value="30+">30+ days</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="destination">Destination Region</label>
+            <select id="destination">
+              <option value="domestic">United States (Domestic)</option>
+              <option value="caribbean" selected>Caribbean / Mexico</option>
+              <option value="europe">Europe</option>
+              <option value="asia">Asia</option>
+              <option value="africa">Africa / Middle East</option>
+              <option value="south-america">South America</option>
+              <option value="cruise">Cruise</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="travelers">Number of Travelers</label>
+            <select id="travelers">
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5+">5+</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="oldest-age">Oldest Traveler Age</label>
+            <select id="oldest-age">
+              <option value="under30">Under 30</option>
+              <option value="30-49" selected>30-49</option>
+              <option value="50-59">50-59</option>
+              <option value="60-69">60-69</option>
+              <option value="70+">70+</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="coverage">Coverage Level</label>
+            <select id="coverage">
+              <option value="basic">Basic (Cancellation + Medical)</option>
+              <option value="standard" selected>Standard (Comprehensive)</option>
+              <option value="premium">Premium (Cancel For Any Reason)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="medical">Medical Coverage Limit</label>
+            <select id="medical">
+              <option value="25000">$25,000</option>
+              <option value="50000" selected>$50,000</option>
+              <option value="100000">$100,000</option>
+              <option value="250000">$250,000</option>
+              <option value="500000">$500,000</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="evacuation">Emergency Evacuation</label>
+            <select id="evacuation">
+              <option value="250000">$250,000</option>
+              <option value="500000" selected>$500,000</option>
+              <option value="1000000">$1,000,000</option>
+            </select>
+          </div>
+          <button type="button" class="btn-calculate" onclick="calculate()">Calculate Premium</button>
+        </form>
+        <div class="calc-results" id="results">
+          <div class="result-highlight">
+            <div class="label">Estimated Premium</div>
+            <div class="value" id="premium">$0</div>
+          </div>
+          <div class="result-details">
+            <div class="result-item"><div class="label">Cost as % of Trip</div><div class="value" id="percent">0%</div></div>
+            <div class="result-item"><div class="label">Trip Cancellation Coverage</div><div class="value" id="cancel-coverage">$0</div></div>
+            <div class="result-item"><div class="label">Medical Coverage</div><div class="value" id="med-coverage">$0</div></div>
+            <div class="result-item"><div class="label">Evacuation Coverage</div><div class="value" id="evac-coverage">$0</div></div>
+          </div>
+        </div>
+        <div class="cta-section" id="cta-section">
+          <div class="cta-card">
+            <div class="cta-icon">✈️</div>
+            <h3>Compare Travel Insurance Plans</h3>
+            <p>Get instant quotes from top travel insurance providers. Find the best coverage for your trip.</p>
+            <a href="#AFFILIATE_LINK_PLACEHOLDER" class="cta-button" target="_blank" rel="noopener sponsored">Get Free Quotes</a>
+            <p class="affiliate-disclosure">We may earn a referral fee if you purchase a policy.</p>
+          </div>
+        </div>
+      </div>
+      <div class="seo-content">
+        <div class="seo-block">
+          <h2>How to Use This Travel Insurance Calculator</h2>
+          <p>Enter your trip details to get an estimated travel insurance premium. Our calculator uses average rate data from leading travel insurance providers.</p>
+          <ul>
+            <li><strong>Trip Cost</strong> — Enter the total amount of prepaid, non-refundable expenses (flights, hotels, tours).</li>
+            <li><strong>Destination</strong> — Medical costs vary greatly by region. Remote destinations may require expensive medical evacuation.</li>
+            <li><strong>Traveler Age</strong> — Older travelers pay more due to higher medical risk. Rates increase significantly after age 60.</li>
+            <li><strong>Coverage Level</strong> — Basic covers essentials; Premium includes "Cancel For Any Reason" (CFAR) for maximum flexibility.</li>
+          </ul>
+        </div>
+        <div class="seo-block">
+          <h2>What Does Travel Insurance Cover?</h2>
+          <ul>
+            <li><strong>Trip Cancellation:</strong> Reimburses prepaid expenses if you cancel for covered reasons (illness, weather, family emergency).</li>
+            <li><strong>Trip Interruption:</strong> Covers costs if your trip is cut short after departure.</li>
+            <li><strong>Emergency Medical:</strong> Pays for medical treatment abroad (your US health insurance may not cover international care).</li>
+            <li><strong>Emergency Evacuation:</strong> Covers transport to the nearest medical facility or back home.</li>
+            <li><strong>Baggage Loss/Delay:</strong> Reimburses for lost, stolen, or delayed luggage.</li>
+            <li><strong>Travel Delay:</strong> Covers meals and accommodations if your flight is delayed.</li>
+          </ul>
+        </div>
+        <div class="seo-block full-width">
+          <h2>Frequently Asked Questions</h2>
+          <h3>How much does travel insurance cost?</h3>
+          <p>Travel insurance typically costs 4-10% of your total trip cost. For a $5,000 trip, expect to pay $200-$500. The exact cost depends on your age, destination, trip length, and coverage level.</p>
+          <h3>Do I need travel insurance?</h3>
+          <p>It's strongly recommended for international trips, cruises, expensive prepaid vacations, or if you could lose money from a last-minute cancellation. Medicare and most US health plans don't cover medical care abroad.</p>
+          <h3>What is CFAR coverage?</h3>
+          <p>Cancel For Any Reason (CFAR) is an optional upgrade that lets you cancel your trip for any reason not covered by the base policy and receive 50-75% of your non-refundable trip cost back. It typically adds 40-60% to the premium.</p>
+        </div>
+        <div class="seo-block full-width" style="background:var(--bg-secondary);border-style:dashed;margin-top:1rem">
+          <h2>Disclaimer</h2>
+          <p>This calculator provides estimates based on average data and is for <strong>educational purposes only</strong>. Results are not insurance quotes. Actual premiums vary by provider, traveler health, and policy terms. Consult travel insurance providers for accurate quotes.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 InsureWise by WiseClick. All rights reserved.</p>
+    </div>
+  </footer>
+<script>
+const fmt = v => '$' + v.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+function calculate() {
+  const tripCost = parseFloat(document.getElementById('trip-cost').value) || 3000;
+  const length = document.getElementById('trip-length').value;
+  const dest = document.getElementById('destination').value;
+  const travelers = document.getElementById('travelers').value;
+  const age = document.getElementById('oldest-age').value;
+  const cov = document.getElementById('coverage').value;
+  const med = document.getElementById('medical').value;
+  const evac = document.getElementById('evacuation').value;
+
+  // Base rate: percentage of trip cost
+  let basePct = 0.06; // 6% of trip cost
+
+  // Trip length factor
+  const lf = { '1-3': 0.7, '4-7': 1.0, '8-14': 1.15, '15-30': 1.4, '30+': 1.8 }[length];
+
+  // Destination factor
+  const df = { domestic: 0.7, caribbean: 1.0, europe: 1.05, asia: 1.2, africa: 1.35, 'south-america': 1.15, cruise: 1.3 }[dest];
+
+  // Travelers factor
+  const tf = travelers === '1' ? 1.0 : travelers === '2' ? 1.8 : travelers === '3' ? 2.5 : travelers === '4' ? 3.2 : 3.8;
+
+  // Age factor
+  const af = { under30: 0.8, '30-49': 1.0, '50-59': 1.3, '60-69': 1.7, '70+': 2.2 }[age];
+
+  // Coverage factor
+  const cf = { basic: 0.7, standard: 1.0, premium: 1.55 }[cov];
+
+  // Medical limit factor
+  const mf = { 25000: 0.8, 50000: 1.0, 100000: 1.15, 250000: 1.3, 500000: 1.45 }[med];
+
+  // Evacuation factor
+  const ef = { 250000: 0.9, 500000: 1.0, 1000000: 1.1 }[evac];
+
+  const premium = tripCost * basePct * lf * df * af * cf * mf * ef * (tf / (travelers === '1' ? 1 : parseFloat(travelers) || 2));
+  const totalPremium = Math.max(premium, 25); // minimum $25
+
+  document.getElementById('premium').textContent = fmt(totalPremium);
+  document.getElementById('percent').textContent = ((totalPremium / tripCost) * 100).toFixed(1) + '%';
+  document.getElementById('cancel-coverage').textContent = fmt(tripCost);
+  document.getElementById('med-coverage').textContent = fmt(parseInt(med));
+  document.getElementById('evac-coverage').textContent = fmt(parseInt(evac));
+  document.getElementById('results').classList.add('visible');
+  document.getElementById('cta-section').classList.add('visible');
+}
+calculate();
+</script>
+
+  <div class="cookie-banner" id="cookie-banner">
+    <p>We use cookies for analytics and advertising. By continuing, you agree to our <a href="/privacy/">Privacy Policy</a>.</p>
+    <button class="cookie-btn" onclick="document.getElementById('cookie-banner').classList.add('hidden');localStorage.setItem('cookie-consent','1')">Accept</button>
+  </div>
+  <script>if(localStorage.getItem('cookie-consent'))document.getElementById('cookie-banner').classList.add('hidden');</script>
+</body>
+</html>
