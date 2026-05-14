@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Life Insurance Calculator - How Much Coverage Do You Need?</title>
+  <meta name="description" content="Free life insurance calculator. Find out how much life insurance coverage you need to protect your family based on income, debts, and dependents.">
+  <meta name="keywords" content="life insurance calculator, how much life insurance do I need, life insurance coverage calculator, term life calculator">
+  <link rel="canonical" href="https://insure.wiseclick.site/life-insurance-calculator/">
+  <meta property="og:title" content="Life Insurance Calculator - Coverage Needs">
+  <meta property="og:description" content="Calculate how much life insurance coverage your family needs. Free and easy to use.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Life Insurance Calculator",
+    "description": "Free life insurance coverage needs calculator",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much life insurance do I need?", "acceptedAnswer": { "@type": "Answer", "text": "A common rule is 10-12 times your annual income, plus outstanding debts. Our calculator helps you find a personalized number based on your specific situation." } },
+      { "@type": "Question", "name": "What is the difference between term and whole life insurance?", "acceptedAnswer": { "@type": "Answer", "text": "Term life covers you for a set period (10-30 years) and is more affordable. Whole life covers your entire life and builds cash value but costs significantly more." } },
+      { "@type": "Question", "name": "When should I buy life insurance?", "acceptedAnswer": { "@type": "Answer", "text": "The best time is when you're young and healthy, as premiums increase with age. If you have dependents, debts, or a mortgage, you should have life insurance." } }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        InsureWise
+      </a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/auto-insurance-calculator/">Auto</a></li>
+        <li><a href="/life-insurance-calculator/" class="active">Life</a></li>
+        <li><a href="/home-insurance-calculator/">Home</a></li>
+        <li><a href="/health-insurance-calculator/">Health</a></li>
+        <li><a href="/insurance-needs-calculator/">Needs</a></li>
+        <li><a href="/deductible-vs-premium-calculator/">Deductible</a></li>
+      </ul>
+    </div>
+  </header>
+  <main>
+    <nav class="breadcrumb"><a href="/">Home</a> / <span>Life Insurance Calculator</span></nav>
+    <div class="calc-page">
+      <h1>Life Insurance Calculator</h1>
+      <p class="subtitle">Find out how much life insurance coverage you need to protect your family's financial future.</p>
+      <div class="calc-tool">
+        <form class="calc-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="income">Annual Income ($)</label>
+            <input type="number" id="income" value="75000" min="0" step="1000">
+          </div>
+          <div class="form-group">
+            <label for="age">Your Age</label>
+            <input type="number" id="age" value="35" min="18" max="80">
+          </div>
+          <div class="form-group">
+            <label for="dependents">Number of Dependents</label>
+            <select id="dependents">
+              <option value="0">0</option><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6+</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="years">Years of Income Replacement</label>
+            <select id="years">
+              <option value="5">5 years</option><option value="10">10 years</option><option value="15">15 years</option><option value="20" selected>20 years</option><option value="25">25 years</option><option value="30">30 years</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="debts">Outstanding Debts/Mortgage ($)</label>
+            <input type="number" id="debts" value="200000" min="0" step="1000">
+          </div>
+          <div class="form-group">
+            <label for="savings">Savings & Investments ($)</label>
+            <input type="number" id="savings" value="50000" min="0" step="1000">
+          </div>
+          <div class="form-group">
+            <label for="existing">Existing Life Insurance ($)</label>
+            <input type="number" id="existing" value="0" min="0" step="1000">
+          </div>
+          <div class="form-group">
+            <label for="final-expenses">Final Expenses ($)</label>
+            <input type="number" id="final-expenses" value="15000" min="0" step="1000">
+          </div>
+          <div class="form-group">
+            <label for="education">Children's Education Fund ($)</label>
+            <input type="number" id="education" value="0" min="0" step="1000">
+          </div>
+          <div class="form-group">
+            <label for="term">Policy Term</label>
+            <select id="term">
+              <option value="10">10-Year Term</option><option value="20" selected>20-Year Term</option><option value="30">30-Year Term</option>
+            </select>
+          </div>
+          <button type="button" class="btn-calculate" onclick="calculate()">Calculate Coverage</button>
+        </form>
+        <div class="calc-results" id="results">
+          <div class="result-highlight">
+            <div class="label">Recommended Coverage</div>
+            <div class="value" id="coverage-amount">$0</div>
+          </div>
+          <div class="result-details">
+            <div class="result-item"><div class="label">Income Replacement</div><div class="value" id="income-need">$0</div></div>
+            <div class="result-item"><div class="label">Debts & Mortgage</div><div class="value" id="debt-need">$0</div></div>
+            <div class="result-item"><div class="label">Education Fund</div><div class="value" id="edu-need">$0</div></div>
+            <div class="result-item"><div class="label">Existing Coverage Offset</div><div class="value" id="offset">$0</div></div>
+            <div class="result-item"><div class="label">Est. Monthly Premium</div><div class="value" id="premium">$0</div></div>
+            <div class="result-item"><div class="label">Est. Annual Premium</div><div class="value" id="annual-premium">$0</div></div>
+          </div>
+        </div>
+        <div class="cta-section" id="cta-section">
+          <div class="cta-card">
+            <div class="cta-icon">🛡️</div>
+            <h3>Get Life Insurance Quotes</h3>
+            <p>Compare rates from top life insurance providers. No medical exam required for some policies.</p>
+            <a href="#AFFILIATE_LINK_PLACEHOLDER" class="cta-button" target="_blank" rel="noopener sponsored">Get Free Quotes</a>
+            <p class="affiliate-disclosure">We may earn a referral fee if you request a quote.</p>
+          </div>
+        </div>
+      </div>
+      <div class="seo-content">
+        <div class="seo-block">
+          <h2>How Much Life Insurance Do You Need?</h2>
+          <p>The right amount depends on your income, debts, number of dependents, and financial goals. Our calculator factors in income replacement, outstanding debts, education costs, and final expenses, then subtracts your existing savings and coverage.</p>
+        </div>
+        <div class="seo-block">
+          <h2>Term vs Whole Life Insurance</h2>
+          <ul>
+            <li><strong>Term life</strong> — Covers you for a set period (10-30 years). More affordable, ideal for young families.</li>
+            <li><strong>Whole life</strong> — Covers your entire life and builds cash value. Costs 5-15x more than term.</li>
+            <li><strong>Recommendation</strong> — Most families are better served by term life and investing the difference.</li>
+          </ul>
+        </div>
+        <div class="seo-block full-width">
+          <h2>Frequently Asked Questions</h2>
+          <h3>How much life insurance do I need?</h3>
+          <p>A common rule is 10-12 times your annual income, plus outstanding debts. Our calculator gives a personalized number based on your specific situation including dependents, education costs, and existing resources.</p>
+          <h3>What is the difference between term and whole life insurance?</h3>
+          <p>Term life covers you for a set period (10-30 years) and is more affordable. Whole life covers your entire life and builds cash value but costs significantly more.</p>
+          <h3>When should I buy life insurance?</h3>
+          <p>The best time is when you're young and healthy, as premiums increase with age. If you have dependents, debts, or a mortgage, you should have coverage.</p>
+        </div>
+        <div class="seo-block full-width" style="background:var(--bg-secondary);border-style:dashed;margin-top:1rem">
+          <h2>Disclaimer</h2>
+          <p>This calculator provides estimates based on national average data and is for <strong>educational purposes only</strong>. Results are not insurance quotes. Actual premiums vary based on health, lifestyle, and insurer. Consult a licensed insurance agent.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 InsureWise by WiseClick. All rights reserved.</p>
+    </div>
+  </footer>
+<script>
+const fmt = v => '$' + v.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+const rates = {20: 0.010, 30: 0.013, 40: 0.022, 50: 0.045, 60: 0.090};
+function calculate() {
+  const income = parseFloat(document.getElementById('income').value) || 0;
+  const age = parseInt(document.getElementById('age').value) || 35;
+  const years = parseInt(document.getElementById('years').value) || 20;
+  const debts = parseFloat(document.getElementById('debts').value) || 0;
+  const savingsVal = parseFloat(document.getElementById('savings').value) || 0;
+  const existing = parseFloat(document.getElementById('existing').value) || 0;
+  const finalExp = parseFloat(document.getElementById('final-expenses').value) || 15000;
+  const edu = parseFloat(document.getElementById('education').value) || 0;
+  const incomeNeed = income * years;
+  const totalNeed = incomeNeed + debts + finalExp + edu;
+  const coverageNeeded = Math.max(0, totalNeed - savingsVal - existing);
+  const ageKey = age < 30 ? 20 : age < 40 ? 30 : age < 50 ? 40 : age < 60 ? 50 : 60;
+  const rate = rates[ageKey] || 0.045;
+  const monthlyPremium = coverageNeeded / 1000 * rate;
+  document.getElementById('coverage-amount').textContent = fmt(coverageNeeded);
+  document.getElementById('income-need').textContent = fmt(incomeNeed);
+  document.getElementById('debt-need').textContent = fmt(debts);
+  document.getElementById('edu-need').textContent = fmt(edu);
+  document.getElementById('offset').textContent = fmt(savingsVal + existing);
+  document.getElementById('premium').textContent = fmt(monthlyPremium) + '/mo';
+  document.getElementById('annual-premium').textContent = fmt(monthlyPremium * 12);
+  document.getElementById('results').classList.add('visible');
+  document.getElementById('cta-section').classList.add('visible');
+}
+calculate();
+</script>
+</body>
+</html>
