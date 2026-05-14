@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Insurance Calculator - Estimate Homeowners Insurance Cost</title>
+  <meta name="description" content="Free home insurance calculator. Estimate your homeowners insurance premium based on property value, location, construction, and features.">
+  <meta name="keywords" content="home insurance calculator, homeowners insurance estimator, home insurance cost, dwelling coverage calculator">
+  <link rel="canonical" href="https://insure.wiseclick.site/home-insurance-calculator/">
+  <meta property="og:title" content="Home Insurance Calculator - Estimate Your Premium">
+  <meta property="og:description" content="Estimate your homeowners insurance cost based on your property and coverage needs.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Home Insurance Calculator",
+    "description": "Free homeowners insurance premium estimator",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much homeowners insurance do I need?", "acceptedAnswer": { "@type": "Answer", "text": "You need enough dwelling coverage to rebuild your home. Your personal property coverage should be 50-70% of dwelling coverage. Liability coverage of $300,000 is typical." } },
+      { "@type": "Question", "name": "What does homeowners insurance cover?", "acceptedAnswer": { "@type": "Answer", "text": "It covers damage to your home (dwelling), personal belongings, other structures, additional living expenses, and personal liability. Flood and earthquake damage usually require separate policies." } },
+      { "@type": "Question", "name": "How can I lower my home insurance premium?", "acceptedAnswer": { "@type": "Answer", "text": "Raise your deductible, install security features, bundle with auto insurance, maintain good credit, and shop around for the best rate." } }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        InsureWise
+      </a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/auto-insurance-calculator/">Auto</a></li>
+        <li><a href="/life-insurance-calculator/">Life</a></li>
+        <li><a href="/home-insurance-calculator/" class="active">Home</a></li>
+        <li><a href="/health-insurance-calculator/">Health</a></li>
+        <li><a href="/insurance-needs-calculator/">Needs</a></li>
+        <li><a href="/deductible-vs-premium-calculator/">Deductible</a></li>
+      </ul>
+    </div>
+  </header>
+  <main>
+    <nav class="breadcrumb"><a href="/">Home</a> / <span>Home Insurance Calculator</span></nav>
+    <div class="calc-page">
+      <h1>Home Insurance Calculator</h1>
+      <p class="subtitle">Estimate your homeowners insurance premium based on your property value, features, and coverage needs.</p>
+      <div class="calc-tool">
+        <form class="calc-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="dwelling">Dwelling Coverage ($)</label>
+            <input type="number" id="dwelling" value="350000" min="50000" step="5000">
+          </div>
+          <div class="form-group">
+            <label for="personal">Personal Property ($)</label>
+            <input type="number" id="personal" value="70000" min="0" step="5000">
+          </div>
+          <div class="form-group">
+            <label for="year-built">Year Built</label>
+            <input type="number" id="year-built" value="1995" min="1800" max="2026">
+          </div>
+          <div class="form-group">
+            <label for="home-type">Home Type</label>
+            <select id="home-type">
+              <option value="single" selected>Single Family</option>
+              <option value="condo">Condo</option>
+              <option value="townhouse">Townhouse</option>
+              <option value="mobile">Mobile Home</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="roof">Roof Type</label>
+            <select id="roof">
+              <option value="asphalt" selected>Asphalt Shingles</option>
+              <option value="metal">Metal</option>
+              <option value="tile">Tile</option>
+              <option value="wood">Wood Shake</option>
+              <option value="flat">Flat</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="construction">Construction Type</label>
+            <select id="construction">
+              <option value="frame" selected>Frame</option>
+              <option value="brick">Brick</option>
+              <option value="stone">Stone</option>
+              <option value="concrete">Concrete Block</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="risk">Location Risk</label>
+            <select id="risk">
+              <option value="low">Low (no disaster zone)</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High (flood/wildfire/hurricane zone)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="deductible">Deductible</label>
+            <select id="deductible">
+              <option value="500">$500</option>
+              <option value="1000" selected>$1,000</option>
+              <option value="2000">$2,000</option>
+              <option value="5000">$5,000</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="liability">Liability Coverage</label>
+            <select id="liability">
+              <option value="100">$100,000</option>
+              <option value="300" selected>$300,000</option>
+              <option value="500">$500,000</option>
+            </select>
+          </div>
+          <div class="form-group full-width">
+            <label>Security Features</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item"><input type="checkbox" id="alarm"> <label for="alarm">Alarm System</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="smoke" checked> <label for="smoke">Smoke Detectors</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="deadbolts" checked> <label for="deadbolts">Deadbolts</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="sprinkler"> <label for="sprinkler">Sprinkler System</label></div>
+            </div>
+          </div>
+          <button type="button" class="btn-calculate" onclick="calculate()">Calculate Premium</button>
+        </form>
+        <div class="calc-results" id="results">
+          <div class="result-highlight">
+            <div class="label">Estimated Monthly Premium</div>
+            <div class="value" id="monthly">$0</div>
+          </div>
+          <div class="result-details">
+            <div class="result-item"><div class="label">Annual Premium</div><div class="value" id="annual">$0</div></div>
+            <div class="result-item"><div class="label">Dwelling Coverage</div><div class="value" id="dwelling-val">$0</div></div>
+            <div class="result-item"><div class="label">Personal Property</div><div class="value" id="personal-val">$0</div></div>
+            <div class="result-item"><div class="label">Liability</div><div class="value" id="liability-val">$0</div></div>
+          </div>
+        </div>
+        <div class="cta-section" id="cta-section">
+          <div class="cta-card">
+            <div class="cta-icon">🛡️</div>
+            <h3>Get Homeowners Insurance Quotes</h3>
+            <p>Compare rates from top home insurance providers in your area.</p>
+            <a href="#AFFILIATE_LINK_PLACEHOLDER" class="cta-button" target="_blank" rel="noopener sponsored">Get Free Quotes</a>
+            <p class="affiliate-disclosure">We may earn a referral fee if you request a quote.</p>
+          </div>
+        </div>
+      </div>
+      <div class="seo-content">
+        <div class="seo-block">
+          <h2>How to Estimate Home Insurance Costs</h2>
+          <p>Your premium depends on your home's value, age, construction type, location risk, and the coverage options you choose. Our calculator uses national average rates adjusted for these factors.</p>
+        </div>
+        <div class="seo-block">
+          <h2>Ways to Save on Home Insurance</h2>
+          <ul>
+            <li>Raise your deductible from $500 to $1,000 for up to 15% savings</li>
+            <li>Install security systems and smoke detectors for discounts</li>
+            <li>Bundle with auto insurance for 10-20% off</li>
+            <li>Maintain a good credit score</li>
+            <li>Compare quotes from multiple insurers annually</li>
+          </ul>
+        </div>
+        <div class="seo-block full-width">
+          <h2>Frequently Asked Questions</h2>
+          <h3>How much homeowners insurance do I need?</h3>
+          <p>You need enough dwelling coverage to completely rebuild your home. Personal property coverage should be 50-70% of dwelling coverage. $300,000 in liability is typical.</p>
+          <h3>What does homeowners insurance cover?</h3>
+          <p>It covers damage to your dwelling, personal belongings, other structures, additional living expenses if displaced, and personal liability. Flood and earthquake usually require separate policies.</p>
+          <h3>How can I lower my home insurance premium?</h3>
+          <p>Raise your deductible, install security features, bundle with auto insurance, maintain good credit, and compare quotes from multiple insurers.</p>
+        </div>
+        <div class="seo-block full-width" style="background:var(--bg-secondary);border-style:dashed;margin-top:1rem">
+          <h2>Disclaimer</h2>
+          <p>This calculator provides estimates based on national average data and is for <strong>educational purposes only</strong>. Actual premiums vary by insurer and location. Consult a licensed agent for accurate quotes.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 InsureWise by WiseClick. All rights reserved.</p>
+    </div>
+  </footer>
+<script>
+const fmt = v => '$' + v.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+function calculate() {
+  const dwelling = parseFloat(document.getElementById('dwelling').value) || 350000;
+  const personal = parseFloat(document.getElementById('personal').value) || 70000;
+  const yearBuilt = parseInt(document.getElementById('year-built').value) || 1995;
+  const roof = document.getElementById('roof').value;
+  const construction = document.getElementById('construction').value;
+  const risk = document.getElementById('risk').value;
+  const deductible = document.getElementById('deductible').value;
+  const liability = document.getElementById('liability').value;
+  const age = 2026 - yearBuilt;
+  const baseRate = dwelling / 1000 * 3.50;
+  const ageF = age <= 10 ? 0.9 : age <= 25 ? 1.0 : age <= 40 ? 1.15 : age <= 60 ? 1.3 : 1.5;
+  const roofF = {asphalt:1.0, metal:0.85, tile:0.9, wood:1.3, flat:1.2}[roof];
+  const conF = {frame:1.1, brick:0.95, stone:0.9, concrete:0.95}[construction];
+  const riskF = {low:0.8, medium:1.0, high:1.4}[risk];
+  const dedF = {500:1.15, 1000:1.0, 2000:0.85, 5000:0.7}[deductible];
+  const liabF = {100:0.95, 300:1.0, 500:1.05}[liability];
+  let secDisc = 0;
+  if (document.getElementById('alarm').checked) secDisc += 0.05;
+  if (document.getElementById('smoke').checked) secDisc += 0.02;
+  if (document.getElementById('deadbolts').checked) secDisc += 0.03;
+  if (document.getElementById('sprinkler').checked) secDisc += 0.08;
+  const ppF = 1.0 + (personal / dwelling * 0.3);
+  const annual = baseRate * ageF * roofF * conF * riskF * dedF * liabF * ppF * (1 - secDisc);
+  const monthly = annual / 12;
+  document.getElementById('monthly').textContent = fmt(monthly);
+  document.getElementById('annual').textContent = fmt(annual);
+  document.getElementById('dwelling-val').textContent = fmt(dwelling);
+  document.getElementById('personal-val').textContent = fmt(personal);
+  document.getElementById('liability-val').textContent = '$' + liability + ',000';
+  document.getElementById('results').classList.add('visible');
+  document.getElementById('cta-section').classList.add('visible');
+}
+calculate();
+</script>
+</body>
+</html>
