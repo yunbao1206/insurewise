@@ -67,5 +67,11 @@
       <p class="footer-copy">&copy; 2026 InsureWise by WiseClick. All rights reserved.</p>
     </div>
   </footer>
+
+  <div class="cookie-banner" id="cookie-banner">
+    <p>We use cookies for analytics and advertising. By continuing, you agree to our <a href="/privacy/">Privacy Policy</a>.</p>
+    <button class="cookie-btn" onclick="document.getElementById('cookie-banner').classList.add('hidden');localStorage.setItem('cookie-consent','1')">Accept</button>
+  </div>
+  <script>if(localStorage.getItem('cookie-consent'))document.getElementById('cookie-banner').classList.add('hidden');</script>
 </body>
 </html>
