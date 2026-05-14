@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Insurance Calculator - Estimate ACA Premiums & Subsidies</title>
+  <meta name="description" content="Free health insurance calculator. Estimate your ACA marketplace premiums, premium tax credits, and subsidies based on income and household size.">
+  <meta name="keywords" content="health insurance calculator, ACA premium calculator, health insurance subsidy calculator, marketplace insurance cost">
+  <link rel="canonical" href="https://insure.wiseclick.site/health-insurance-calculator/">
+  <meta property="og:title" content="Health Insurance Calculator - ACA Premiums & Subsidies">
+  <meta property="og:description" content="Estimate your health insurance premiums and see if you qualify for ACA subsidies.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Health Insurance Calculator",
+    "description": "Free ACA health insurance premium and subsidy estimator",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Am I eligible for health insurance subsidies?", "acceptedAnswer": { "@type": "Answer", "text": "If your household income is between 100% and 400% of the Federal Poverty Level, you likely qualify for premium tax credits through the ACA marketplace." } },
+      { "@type": "Question", "name": "What is the difference between Bronze, Silver, and Gold plans?", "acceptedAnswer": { "@type": "Answer", "text": "Bronze plans have lower premiums but higher out-of-pocket costs (60/40 split). Silver plans are balanced (70/30). Gold plans have higher premiums but lower out-of-pocket costs (80/20)." } },
+      { "@type": "Question", "name": "When can I enroll in health insurance?", "acceptedAnswer": { "@type": "Answer", "text": "The ACA Open Enrollment Period typically runs November 1 through January 15. You may qualify for a Special Enrollment Period after life events like marriage, job loss, or having a baby." } }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        InsureWise
+      </a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/auto-insurance-calculator/">Auto</a></li>
+        <li><a href="/life-insurance-calculator/">Life</a></li>
+        <li><a href="/home-insurance-calculator/">Home</a></li>
+        <li><a href="/health-insurance-calculator/" class="active">Health</a></li>
+        <li><a href="/insurance-needs-calculator/">Needs</a></li>
+        <li><a href="/deductible-vs-premium-calculator/">Deductible</a></li>
+      </ul>
+    </div>
+  </header>
+  <main>
+    <nav class="breadcrumb"><a href="/">Home</a> / <span>Health Insurance Calculator</span></nav>
+    <div class="calc-page">
+      <h1>Health Insurance Calculator</h1>
+      <p class="subtitle">Estimate your ACA marketplace premiums and see if you qualify for premium tax credits.</p>
+      <div class="calc-tool">
+        <form class="calc-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="income">Annual Household Income ($)</label>
+            <input type="number" id="income" value="60000" min="0" step="1000">
+          </div>
+          <div class="form-group">
+            <label for="household">Household Size</label>
+            <select id="household">
+              <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4" selected>4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8+</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="age">Your Age</label>
+            <input type="number" id="age" value="35" min="18" max="65">
+          </div>
+          <div class="form-group">
+            <label for="tobacco">Tobacco Use</label>
+            <select id="tobacco">
+              <option value="no" selected>No</option>
+              <option value="yes">Yes</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="state">State</label>
+            <select id="state">
+              <option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY" selected>New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="tier">Coverage Tier</label>
+            <select id="tier">
+              <option value="catastrophic">Catastrophic</option>
+              <option value="bronze">Bronze</option>
+              <option value="silver" selected>Silver</option>
+              <option value="gold">Gold</option>
+              <option value="platinum">Platinum</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="adults">Adults Covered</label>
+            <select id="adults">
+              <option value="1" selected>1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="children">Children Covered</label>
+            <select id="children">
+              <option value="0">0</option><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option>
+            </select>
+          </div>
+          <button type="button" class="btn-calculate" onclick="calculate()">Calculate Premium</button>
+        </form>
+        <div class="calc-results" id="results">
+          <div class="result-highlight">
+            <div class="label">Monthly Premium After Subsidy</div>
+            <div class="value" id="after-subsidy">$0</div>
+          </div>
+          <div class="result-details">
+            <div class="result-item"><div class="label">Full Monthly Premium</div><div class="value" id="full-premium">$0</div></div>
+            <div class="result-item"><div class="label">Monthly Savings</div><div class="value" id="savings">$0</div></div>
+            <div class="result-item"><div class="label">Annual Tax Credit</div><div class="value" id="tax-credit">$0</div></div>
+            <div class="result-item"><div class="label">Annual Cost (After Subsidy)</div><div class="value" id="annual-cost">$0</div></div>
+          </div>
+        </div>
+        <div class="cta-section" id="cta-section">
+          <div class="cta-card">
+            <div class="cta-icon">🛡️</div>
+            <h3>Compare Health Insurance Plans</h3>
+            <p>Browse ACA marketplace plans and see what you qualify for.</p>
+            <a href="#AFFILIATE_LINK_PLACEHOLDER" class="cta-button" target="_blank" rel="noopener sponsored">Compare Plans</a>
+            <p class="affiliate-disclosure">We may earn a referral fee if you enroll in a plan.</p>
+          </div>
+        </div>
+      </div>
+      <div class="seo-content">
+        <div class="seo-block">
+          <h2>Understanding Health Insurance Costs</h2>
+          <p>ACA marketplace premiums depend on your age, location, tobacco use, and plan tier. If your income qualifies, premium tax credits can significantly reduce your monthly cost.</p>
+        </div>
+        <div class="seo-block">
+          <h2>ACA Premium Tax Credits Explained</h2>
+          <ul>
+            <li>Available for households with income 100-400% of the Federal Poverty Level</li>
+            <li>The credit pays part of your premium directly to the insurer</li>
+            <li>You can take it monthly (lower premiums) or as a tax refund</li>
+            <li>Lower income = larger subsidy</li>
+          </ul>
+        </div>
+        <div class="seo-block full-width">
+          <h2>Frequently Asked Questions</h2>
+          <h3>Am I eligible for health insurance subsidies?</h3>
+          <p>If your household income is between 100% and 400% of the Federal Poverty Level, you likely qualify for premium tax credits through the ACA marketplace.</p>
+          <h3>What is the difference between Bronze, Silver, and Gold plans?</h3>
+          <p>Bronze plans have lower premiums but higher out-of-pocket costs. Silver plans are balanced. Gold plans have higher premiums but lower out-of-pocket costs. Silver plans offer extra savings for lower-income households.</p>
+          <h3>When can I enroll in health insurance?</h3>
+          <p>The ACA Open Enrollment Period typically runs November 1 through January 15. Special Enrollment Periods are available after qualifying life events.</p>
+        </div>
+        <div class="seo-block full-width" style="background:var(--bg-secondary);border-style:dashed;margin-top:1rem">
+          <h2>Disclaimer</h2>
+          <p>Based on approximate 2026 Federal Poverty Level guidelines. For <strong>educational purposes only</strong>. Actual premiums and subsidies vary. Visit HealthCare.gov for official information.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 InsureWise by WiseClick. All rights reserved.</p>
+    </div>
+  </footer>
+<script>
+const stateFactors = {AL:0.9,AK:1.5,AZ:0.95,AR:0.9,CA:1.1,CO:1.0,CT:1.1,DE:0.95,FL:1.0,GA:0.95,HI:1.1,ID:0.85,IL:1.0,IN:0.85,IA:0.9,KS:0.9,KY:0.95,LA:1.0,ME:0.85,MD:1.0,MA:1.05,MI:0.75,MN:0.85,MS:0.9,MO:0.9,MT:1.1,NE:0.95,NV:0.95,NH:0.7,NJ:1.1,NM:0.9,NY:1.0,NC:0.9,ND:0.9,OH:0.85,OK:1.0,OR:0.9,PA:0.9,RI:0.95,SC:0.9,SD:0.95,TN:0.95,TX:0.95,UT:0.9,VT:0.85,VA:0.85,WA:0.95,WV:1.1,WI:0.85,WY:1.5};
+const basePremiums = {catastrophic:280, bronze:380, silver:480, gold:580, platinum:720};
+const fmt = v => '$' + v.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+function calculate() {
+  const income = parseFloat(document.getElementById('income').value) || 60000;
+  const hh = parseInt(document.getElementById('household').value) || 4;
+  const age = parseInt(document.getElementById('age').value) || 35;
+  const tobacco = document.getElementById('tobacco').value === 'yes';
+  const st = document.getElementById('state').value;
+  const tier = document.getElementById('tier').value;
+  const adults = parseInt(document.getElementById('adults').value) || 1;
+  const kids = parseInt(document.getElementById('children').value) || 0;
+  const ageF = age < 21 ? 0.6 : age <= 27 ? 0.9 : age <= 35 ? 1.0 : age <= 44 ? 1.1 : age <= 54 ? 1.3 : age <= 59 ? 1.5 : 1.7;
+  const tobF = tobacco ? 1.5 : 1.0;
+  const stF = stateFactors[st] || 1.0;
+  const base = basePremiums[tier] * ageF * tobF * stF;
+  const hhPremium = base * adults + base * 0.5 * kids;
+  const fpl = 15060 + (hh - 1) * 5380;
+  const ratio = income / fpl;
+  let maxMonthly;
+  if (ratio <= 1.5) maxMonthly = income * 0.02 / 12;
+  else if (ratio <= 2.0) maxMonthly = income * 0.04 / 12;
+  else if (ratio <= 2.5) maxMonthly = income * 0.065 / 12;
+  else if (ratio <= 3.0) maxMonthly = income * 0.085 / 12;
+  else if (ratio <= 4.0) maxMonthly = income * 0.095 / 12;
+  else maxMonthly = hhPremium;
+  const subsidy = Math.max(0, hhPremium - maxMonthly);
+  const afterSub = Math.max(0, hhPremium - subsidy);
+  document.getElementById('after-subsidy').textContent = fmt(afterSub);
+  document.getElementById('full-premium').textContent = fmt(hhPremium);
+  document.getElementById('savings').textContent = fmt(subsidy);
+  document.getElementById('tax-credit').textContent = fmt(subsidy * 12);
+  document.getElementById('annual-cost').textContent = fmt(afterSub * 12);
+  document.getElementById('results').classList.add('visible');
+  document.getElementById('cta-section').classList.add('visible');
+}
+calculate();
+</script>
+</body>
+</html>
