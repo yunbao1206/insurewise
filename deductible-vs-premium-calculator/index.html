@@ -221,9 +221,18 @@ function calculate() {
   document.getElementById('b-total').textContent = fmt(costB);
   const premDiff = Math.abs(premA - premB);
   const dedDiff = Math.abs(dedA - dedB);
-  const breakEven = premDiff > 0 ? (dedDiff / premDiff).toFixed(1) : 'N/A';
-  const beOption = premA > premB ? 'A (higher premium)' : 'B (higher premium)';
-  document.getElementById('break-even').textContent = 'Break-even: If you file more than ' + breakEven + ' claims per year, the lower deductible option (' + beOption + ') saves money. With 0 claims over ' + years + ' years, Option A costs ' + fmt(totalPremA) + ' and Option B costs ' + fmt(totalPremB) + '.';
+  const beOption = premA > premB ? 'Option A' : 'Option B';
+  let beText;
+  if (premDiff === 0) {
+    beText = 'Both options have the same premium, so the lower deductible is always better.';
+  } else if (dedDiff === 0) {
+    beText = 'Both options have the same deductible, so the lower premium is always better.';
+  } else {
+    const breakEven = (dedDiff / premDiff).toFixed(1);
+    beText = 'Break-even: If you file more than ' + breakEven + ' claims per year, ' + beOption + ' (higher premium, lower deductible) becomes the better choice.';
+  }
+  beText += ' Over ' + years + ' years with 0 claims, Option A costs ' + fmt(totalPremA) + ' and Option B costs ' + fmt(totalPremB) + '.';
+  document.getElementById('break-even').textContent = beText;
   document.getElementById('results').classList.add('visible');
   document.getElementById('cta-section').classList.add('visible');
 }
