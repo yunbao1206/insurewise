@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insurance Needs Calculator - Assess Your Coverage Gaps</title>
+  <meta name="description" content="Free insurance needs assessment tool. Find out if you have the right insurance coverage and identify gaps in auto, life, home, health, and disability insurance.">
+  <meta name="keywords" content="insurance needs calculator, what insurance do I need, insurance coverage assessment, insurance gap analysis">
+  <link rel="canonical" href="https://insure.wiseclick.site/insurance-needs-calculator/">
+  <meta property="og:title" content="Insurance Needs Calculator - Coverage Gap Assessment">
+  <meta property="og:description" content="Assess your insurance coverage and identify gaps across auto, life, home, health, and disability.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Insurance Needs Calculator",
+    "description": "Free insurance coverage gap assessment tool",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What types of insurance do I really need?", "acceptedAnswer": { "@type": "Answer", "text": "Most adults need health insurance, auto insurance (if you drive), and either renters or homeowners insurance. Life and disability insurance are important if others depend on your income." } },
+      { "@type": "Question", "name": "How do I know if I'm over-insured?", "acceptedAnswer": { "@type": "Answer", "text": "You may be over-insured if you're paying for overlapping coverage, have very low deductibles you can easily afford to raise, or carry coverage for risks you no longer face." } },
+      { "@type": "Question", "name": "What is umbrella insurance and do I need it?", "acceptedAnswer": { "@type": "Answer", "text": "Umbrella insurance provides additional liability coverage beyond your auto and home policy limits. It's recommended if your total assets exceed $300,000." } }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        InsureWise
+      </a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/auto-insurance-calculator/">Auto</a></li>
+        <li><a href="/life-insurance-calculator/">Life</a></li>
+        <li><a href="/home-insurance-calculator/">Home</a></li>
+        <li><a href="/health-insurance-calculator/">Health</a></li>
+        <li><a href="/insurance-needs-calculator/" class="active">Needs</a></li>
+        <li><a href="/deductible-vs-premium-calculator/">Deductible</a></li>
+      </ul>
+    </div>
+  </header>
+  <main>
+    <nav class="breadcrumb"><a href="/">Home</a> / <span>Insurance Needs Calculator</span></nav>
+    <div class="calc-page">
+      <h1>Insurance Needs Calculator</h1>
+      <p class="subtitle">Get a personalized assessment of your insurance coverage gaps and priorities.</p>
+      <div class="calc-tool">
+        <form class="calc-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="income">Annual Income ($)</label>
+            <input type="number" id="income" value="75000" min="0" step="1000">
+          </div>
+          <div class="form-group">
+            <label for="age">Your Age</label>
+            <input type="number" id="age" value="35" min="18" max="80">
+          </div>
+          <div class="form-group">
+            <label for="marital">Marital Status</label>
+            <select id="marital">
+              <option value="single">Single</option>
+              <option value="married" selected>Married</option>
+              <option value="partner">Domestic Partnership</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="dependents">Number of Dependents</label>
+            <select id="dependents">
+              <option value="0">0</option><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6+</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="own-home">Own a Home?</label>
+            <select id="own-home" onchange="toggleConditional()">
+              <option value="no">No</option>
+              <option value="yes" selected>Yes</option>
+            </select>
+          </div>
+          <div class="form-group conditional" id="home-value-group">
+            <label for="home-value">Home Value ($)</label>
+            <input type="number" id="home-value" value="250000" min="0" step="5000">
+          </div>
+          <div class="form-group">
+            <label for="own-vehicle">Own a Vehicle?</label>
+            <select id="own-vehicle" onchange="toggleConditional()">
+              <option value="no">No</option>
+              <option value="yes" selected>Yes</option>
+            </select>
+          </div>
+          <div class="form-group conditional" id="vehicle-value-group">
+            <label for="vehicle-value">Vehicle Value ($)</label>
+            <input type="number" id="vehicle-value" value="25000" min="0" step="1000">
+          </div>
+          <div class="form-group">
+            <label for="debts">Outstanding Debts ($)</label>
+            <input type="number" id="debts" value="150000" min="0" step="5000">
+          </div>
+          <div class="form-group">
+            <label for="savings">Savings & Investments ($)</label>
+            <input type="number" id="savings" value="50000" min="0" step="5000">
+          </div>
+          <div class="form-group full-width">
+            <label>Employer-Provided Insurance</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item"><input type="checkbox" id="emp-health" checked> <label for="emp-health">Health</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="emp-life"> <label for="emp-life">Life</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="emp-disability"> <label for="emp-disability">Disability</label></div>
+            </div>
+          </div>
+          <div class="form-group full-width">
+            <label>Current Coverage (personally purchased)</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item"><input type="checkbox" id="has-auto" checked> <label for="has-auto">Auto</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="has-home" checked> <label for="has-home">Home/Renters</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="has-health"> <label for="has-health">Health</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="has-life"> <label for="has-life">Life</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="has-disability"> <label for="has-disability">Disability</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="has-umbrella"> <label for="has-umbrella">Umbrella</label></div>
+            </div>
+          </div>
+          <button type="button" class="btn-calculate" onclick="calculate()">Assess My Coverage</button>
+        </form>
+        <div class="calc-results" id="results">
+          <div class="score-display">
+            <div class="score-label">Your Insurance Readiness Score</div>
+            <div class="value score-value" id="score">0</div>
+            <div class="score-label" id="score-label">Assessing...</div>
+          </div>
+          <div class="status-cards" id="status-cards"></div>
+        </div>
+        <div class="cta-section" id="cta-section">
+          <div class="cta-card">
+            <div class="cta-icon">🛡️</div>
+            <h3>Get Personalized Recommendations</h3>
+            <p>Connect with insurance professionals who can help fill your coverage gaps.</p>
+            <a href="#AFFILIATE_LINK_PLACEHOLDER" class="cta-button" target="_blank" rel="noopener sponsored">Get Recommendations</a>
+            <p class="affiliate-disclosure">We may earn a referral fee for recommendations.</p>
+          </div>
+        </div>
+      </div>
+      <div class="seo-content">
+        <div class="seo-block">
+          <h2>What Types of Insurance Do You Need?</h2>
+          <p>The right insurance mix depends on your life stage, assets, and dependents. Most adults need health, auto, and property coverage. If others depend on your income, life and disability insurance are essential.</p>
+        </div>
+        <div class="seo-block">
+          <h2>Common Insurance Mistakes</h2>
+          <ul>
+            <li>Only carrying state minimum auto insurance</li>
+            <li>Not having enough life insurance for your family</li>
+            <li>Skipping disability insurance (more likely than death before 65)</li>
+            <li>Not reviewing coverage after major life events</li>
+            <li>Overlooking umbrella insurance for asset protection</li>
+          </ul>
+        </div>
+        <div class="seo-block full-width">
+          <h2>Frequently Asked Questions</h2>
+          <h3>What types of insurance do I really need?</h3>
+          <p>Most adults need health, auto (if driving), and property insurance. Life and disability insurance are important if others depend on your income. Umbrella insurance is wise if your assets exceed $300,000.</p>
+          <h3>How do I know if I'm over-insured?</h3>
+          <p>You may be over-insured if you have overlapping coverage, very low deductibles, or carry coverage for risks you no longer face.</p>
+          <h3>What is umbrella insurance?</h3>
+          <p>Umbrella insurance provides extra liability coverage beyond your auto and home limits. It's recommended if your assets exceed your current liability limits.</p>
+        </div>
+        <div class="seo-block full-width" style="background:var(--bg-secondary);border-style:dashed;margin-top:1rem">
+          <h2>Disclaimer</h2>
+          <p>This assessment is for <strong>educational purposes only</strong> and does not constitute insurance advice. Consult a licensed insurance professional for personalized recommendations.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 InsureWise by WiseClick. All rights reserved.</p>
+    </div>
+  </footer>
+<script>
+function toggleConditional() {
+  const home = document.getElementById('own-home').value;
+  const vehicle = document.getElementById('own-vehicle').value;
+  document.getElementById('home-value-group').classList.toggle('show', home === 'yes');
+  document.getElementById('vehicle-value-group').classList.toggle('show', vehicle === 'yes');
+}
+function calculate() {
+  const income = parseFloat(document.getElementById('income').value) || 0;
+  const age = parseInt(document.getElementById('age').value) || 35;
+  const ownHome = document.getElementById('own-home').value === 'yes';
+  const homeValue = parseFloat(document.getElementById('home-value').value) || 0;
+  const ownVehicle = document.getElementById('own-vehicle').value === 'yes';
+  const debts = parseFloat(document.getElementById('debts').value) || 0;
+  const savingsVal = parseFloat(document.getElementById('savings').value) || 0;
+  const empHealth = document.getElementById('emp-health').checked;
+  const empLife = document.getElementById('emp-life').checked;
+  const empDis = document.getElementById('emp-disability').checked;
+  const hasAuto = document.getElementById('has-auto').checked;
+  const hasHome = document.getElementById('has-home').checked;
+  const hasHealth = document.getElementById('has-health').checked;
+  const hasLife = document.getElementById('has-life').checked;
+  const hasDis = document.getElementById('has-disability').checked;
+  const hasUmbrella = document.getElementById('has-umbrella').checked;
+  const cards = [];
+  let total = 0, covered = 0;
+  if (ownVehicle) {
+    total++;
+    if (hasAuto) { covered++; cards.push({t:'Auto Insurance',s:'covered',m:'You have auto insurance coverage.'}); }
+    else cards.push({t:'Auto Insurance',s:'gap',m:'No auto insurance detected. Required in most states.'});
+  }
+  if (ownHome) {
+    total++;
+    if (hasHome) { covered++; cards.push({t:'Home Insurance',s:'covered',m:'Your home is insured.'}); }
+    else cards.push({t:'Home Insurance',s:'gap',m:'No homeowners insurance. Your home is at risk.'});
+  }
+  total++;
+  if (hasHealth || empHealth) { covered++; cards.push({t:'Health Insurance',s:'covered',m: empHealth ? 'Covered through employer.' : 'You have health coverage.'}); }
+  else cards.push({t:'Health Insurance',s:'gap',m:'No health insurance. High priority.'});
+  const lifeNeed = (income * 10) + debts - savingsVal;
+  total++;
+  if (hasLife || empLife) { covered++; cards.push({t:'Life Insurance',s: lifeNeed > 0 ? 'review' : 'covered',m: lifeNeed > 0 ? 'Consider increasing coverage by $' + lifeNeed.toLocaleString() + '.' : 'Coverage appears adequate.'}); }
+  else if (lifeNeed > 0) cards.push({t:'Life Insurance',s:'gap',m:'Recommended coverage gap: $' + lifeNeed.toLocaleString()});
+  else { covered++; cards.push({t:'Life Insurance',s:'covered',m:'Coverage may not be needed based on your situation.'}); }
+  if (age < 65) {
+    total++;
+    if (hasDis || empDis) { covered++; cards.push({t:'Disability Insurance',s:'covered',m:'You have disability coverage.'}); }
+    else cards.push({t:'Disability Insurance',s:'gap',m:'No disability insurance. 1 in 4 workers will be disabled before 67.'});
+  }
+  const totalAssets = savingsVal + homeValue;
+  if (totalAssets > 300000) {
+    total++;
+    if (hasUmbrella) { covered++; cards.push({t:'Umbrella Insurance',s:'covered',m:'Your assets are protected.'}); }
+    else cards.push({t:'Umbrella Insurance',s:'review',m:'Recommended for assets exceeding $300,000.'});
+  }
+  const score = total > 0 ? Math.round(covered / total * 100) : 100;
+  const scoreEl = document.getElementById('score');
+  scoreEl.textContent = score;
+  scoreEl.className = 'value score-value ' + (score < 40 ? 'score-low' : score < 70 ? 'score-mid' : 'score-high');
+  document.getElementById('score-label').textContent = score < 40 ? 'Significant gaps found' : score < 70 ? 'Some gaps to address' : 'Good coverage overall';
+  let html = '';
+  cards.forEach(c => {
+    html += '<div class="status-card status-' + c.s + '"><h4>' + c.t + '</h4><p>' + c.m + '</p></div>';
+  });
+  document.getElementById('status-cards').innerHTML = html;
+  document.getElementById('results').classList.add('visible');
+  document.getElementById('cta-section').classList.add('visible');
+}
+toggleConditional();
+calculate();
+</script>
+</body>
+</html>
