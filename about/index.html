@@ -69,6 +69,9 @@
     <h2>Part of WiseClick</h2>
     <p>InsureWise is part of the <a href="https://wiseclick.site">WiseClick</a> family of free online tools. WiseClick builds easy-to-use calculators and tools that help people make smarter financial decisions.</p>
 
+    <h2>Disclaimer</h2>
+    <p>InsureWise calculators provide estimates based on national average data and are for <strong>educational purposes only</strong>. Results are not insurance quotes, financial advice, or recommendations. Actual premiums and coverage depend on many factors not captured by our tools. InsureWise is not a licensed insurance agent, broker, or carrier. Always consult a licensed insurance professional before making insurance decisions.</p>
+
     <p class="last-updated">Last updated: May 2026</p>
   </main>
 
@@ -90,5 +93,11 @@
     </div>
   </footer>
 
+
+  <div class="cookie-banner" id="cookie-banner">
+    <p>We use cookies for analytics and advertising. By continuing, you agree to our <a href="/privacy/">Privacy Policy</a>.</p>
+    <button class="cookie-btn" onclick="document.getElementById('cookie-banner').classList.add('hidden');localStorage.setItem('cookie-consent','1')">Accept</button>
+  </div>
+  <script>if(localStorage.getItem('cookie-consent'))document.getElementById('cookie-banner').classList.add('hidden');</script>
 </body>
 </html>
