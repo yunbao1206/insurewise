@@ -62,6 +62,7 @@
     <div class="calc-page">
       <h1>Deductible vs Premium Calculator</h1>
       <p class="subtitle">Compare two insurance options side by side to find your best deductible and premium combination.</p>
+      <p style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.5rem">InsureWise is not a licensed insurance broker. Results are estimates only, not actual quotes.</p>
       <div class="calc-tool">
         <form class="calc-form" onsubmit="return false;">
           <div class="form-group">
@@ -143,9 +144,9 @@
           <div class="cta-card">
             <div class="cta-icon">🛡️</div>
             <h3>Find Your Best Rate</h3>
-            <p>Compare insurance quotes with different deductible options from top providers.</p>
-            <a href="#AFFILIATE_LINK_PLACEHOLDER" class="cta-button" target="_blank" rel="noopener sponsored">Get Free Quotes</a>
-            <p class="affiliate-disclosure">We may earn a referral fee if you request a quote.</p>
+            <p>Compare insurance estimates with different deductible options from top providers.</p>
+            <p class="affiliate-disclosure">We earn a referral fee if you request a quote. This does not affect our calculator results.</p>
+            <a href="#AFFILIATE_LINK_PLACEHOLDER" class="cta-button" target="_blank" rel="noopener sponsored">Connect with Providers</a>
           </div>
         </div>
       </div>
@@ -197,6 +198,8 @@ function calculate() {
   const dedB = parseFloat(document.getElementById('deductible-b').value) || 0;
   const claims = parseFloat(document.getElementById('claims').value) || 0;
   const years = parseInt(document.getElementById('years').value) || 5;
+  const insType = document.getElementById('type').value;
+  const typeNote = insType === 'health' ? ' Note: Health insurance deductibles are typically annual (reset each year), while auto and home deductibles apply per claim.' : '';
   const totalPremA = premA * years;
   const totalPremB = premB * years;
   const totalDedA = dedA * claims * years;
@@ -209,8 +212,8 @@ function calculate() {
   document.getElementById('savings').textContent = fmt(savings) + ' over ' + years + ' years';
   document.getElementById('col-a').className = 'comparison-column' + (aWins ? ' winner' : '');
   document.getElementById('col-b').className = 'comparison-column' + (!aWins ? ' winner' : '');
-  document.getElementById('badge-a').innerHTML = aWins ? '<span class="winner-badge">Best Choice</span>' : '';
-  document.getElementById('badge-b').innerHTML = !aWins ? '<span class="winner-badge">Best Choice</span>' : '';
+  document.getElementById('badge-a').innerHTML = aWins ? '<span class="winner-badge">Lower Total Cost</span>' : '';
+  document.getElementById('badge-b').innerHTML = !aWins ? '<span class="winner-badge">Lower Total Cost</span>' : '';
   document.getElementById('a-prem').textContent = fmt(premA) + '/yr';
   document.getElementById('a-ded').textContent = fmt(dedA);
   document.getElementById('a-total-prem').textContent = fmt(totalPremA);
@@ -231,12 +234,13 @@ function calculate() {
     beText = 'Both options have the same deductible, so the lower premium is always better.';
   } else {
     const breakEven = (dedDiff / premDiff).toFixed(1);
-    beText = 'Break-even: If you file more than ' + breakEven + ' claims per year, ' + beOption + ' (higher premium, lower deductible) becomes the better choice.';
+    beText = 'Break-even: If you file more than ' + breakEven + ' claims per year, ' + beOption + ' (higher premium, lower deductible) becomes the lower-cost choice.' + typeNote;
   }
-  beText += ' Over ' + years + ' years with 0 claims, Option A costs ' + fmt(totalPremA) + ' and Option B costs ' + fmt(totalPremB) + '.';
+  const costAtClaimsA = totalPremA + dedA * claims * years;
+  const costAtClaimsB = totalPremB + dedB * claims * years;
+  beText += ' Over ' + years + ' years with ' + claims + ' claims/year, Option A costs ' + fmt(costAtClaimsA) + ' and Option B costs ' + fmt(costAtClaimsB) + '.';
   document.getElementById('break-even').textContent = beText;
   document.getElementById('results').classList.add('visible');
-  document.getElementById('cta-section').classList.add('visible');
 }
 calculate();
 </script>
