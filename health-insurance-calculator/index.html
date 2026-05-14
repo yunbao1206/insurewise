@@ -62,6 +62,7 @@
     <div class="calc-page">
       <h1>Health Insurance Calculator</h1>
       <p class="subtitle">Estimate your ACA marketplace premiums and see if you qualify for premium tax credits.</p>
+      <p style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.5rem">InsureWise is not a licensed insurance broker. Results are estimates only, not actual quotes.</p>
       <div class="calc-tool">
         <form class="calc-form" onsubmit="return false;">
           <div class="form-group">
@@ -132,8 +133,8 @@
             <div class="cta-icon">🛡️</div>
             <h3>Compare Health Insurance Plans</h3>
             <p>Browse ACA marketplace plans and see what you qualify for.</p>
+            <p class="affiliate-disclosure">We earn a referral fee if you enroll in a plan. This does not affect our calculator results.</p>
             <a href="#AFFILIATE_LINK_PLACEHOLDER" class="cta-button" target="_blank" rel="noopener sponsored">Compare Plans</a>
-            <p class="affiliate-disclosure">We may earn a referral fee if you enroll in a plan.</p>
           </div>
         </div>
       </div>
@@ -162,7 +163,7 @@
         </div>
         <div class="seo-block full-width" style="background:var(--bg-secondary);border-style:dashed;margin-top:1rem">
           <h2>Disclaimer</h2>
-          <p>Based on approximate 2026 Federal Poverty Level guidelines. For <strong>educational purposes only</strong>. Actual premiums and subsidies vary. Visit HealthCare.gov for official information.</p>
+          <p>Based on approximate Federal Poverty Level guidelines. Subsidy estimates reflect the American Rescue Plan Act (no 400% FPL cap). For <strong>educational purposes only</strong>. Actual premiums and subsidies vary. Visit <a href="https://www.healthcare.gov">HealthCare.gov</a> for official information.</p>
         </div>
       </div>
     </div>
@@ -203,7 +204,7 @@ function calculate() {
   else if (ratio <= 2.5) maxMonthly = income * 0.065 / 12;
   else if (ratio <= 3.0) maxMonthly = income * 0.085 / 12;
   else if (ratio <= 4.0) maxMonthly = income * 0.095 / 12;
-  else maxMonthly = hhPremium;
+  else maxMonthly = income * 0.085 / 12;
   const subsidy = Math.max(0, hhPremium - maxMonthly);
   const afterSub = Math.max(0, hhPremium - subsidy);
   document.getElementById('after-subsidy').textContent = fmt(afterSub);
@@ -212,7 +213,6 @@ function calculate() {
   document.getElementById('tax-credit').textContent = fmt(subsidy * 12);
   document.getElementById('annual-cost').textContent = fmt(afterSub * 12);
   document.getElementById('results').classList.add('visible');
-  document.getElementById('cta-section').classList.add('visible');
 }
 calculate();
 </script>
