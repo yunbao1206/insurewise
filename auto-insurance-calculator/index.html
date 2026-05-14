@@ -63,6 +63,7 @@
     <div class="calc-page">
       <h1>Auto Insurance Calculator</h1>
       <p class="subtitle">Estimate your monthly car insurance premium based on your vehicle, driving profile, and coverage preferences.</p>
+      <p style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.5rem">InsureWise is not a licensed insurance broker. Results are estimates only, not actual quotes.</p>
       <div class="calc-tool">
         <form class="calc-form" onsubmit="return false;">
           <div class="form-group">
@@ -150,9 +151,9 @@
           <div class="cta-card">
             <div class="cta-icon">🛡️</div>
             <h3>Compare Auto Insurance Rates</h3>
-            <p>See quotes from top providers side by side. Free, no obligation.</p>
-            <a href="#AFFILIATE_LINK_PLACEHOLDER" class="cta-button" target="_blank" rel="noopener sponsored">Get Free Quotes</a>
-            <p class="affiliate-disclosure">We may earn a referral fee if you request a quote. This does not affect our calculator results.</p>
+            <p>See estimates from top providers side by side. Free, no obligation.</p>
+            <p class="affiliate-disclosure">We earn a referral fee if you request a quote. This does not affect our calculator results.</p>
+            <a href="#AFFILIATE_LINK_PLACEHOLDER" class="cta-button" target="_blank" rel="noopener sponsored">Connect with Providers</a>
           </div>
         </div>
       </div>
@@ -236,7 +237,6 @@ function calculate() {
   document.getElementById('liability-cost').textContent = fmt(liability) + '/mo';
   document.getElementById('full-cost').textContent = fmt(full) + '/mo';
   document.getElementById('results').classList.add('visible');
-  document.getElementById('cta-section').classList.add('visible');
 }
 calculate();
 </script>
