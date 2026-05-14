@@ -45,13 +45,15 @@
     <h2 style="font-size:1.15rem;margin:2rem 0 0.75rem">6. Third-Party Services</h2>
     <p style="font-size:0.95rem;color:#5f6368;margin-bottom:0.75rem"><strong>Google AdSense:</strong> Displays advertisements. Google may use cookies to serve personalized ads. Opt out at <a href="https://www.google.com/settings/ads">Google Ads Settings</a>.</p>
     <p style="font-size:0.95rem;color:#5f6368;margin-bottom:0.75rem"><strong>Google Analytics:</strong> Analyzes website traffic using cookies. Data is aggregated and anonymous.</p>
-    <h2 style="font-size:1.15rem;margin:2rem 0 0.75rem">7. California Consumer Privacy Act (CCPA)</h2>
+    <h2 style="font-size:1.15rem;margin:2rem 0 0.75rem">7. General Data Protection Regulation (GDPR)</h2>
+    <p style="font-size:0.95rem;color:#5f6368;margin-bottom:0.75rem">If you are a resident of the European Economic Area (EEA), you have the right to: access your personal data, request correction or deletion, restrict processing, data portability, and object to processing. We process data based on legitimate interests (website operation and analytics). Since we collect minimal data and calculator inputs never leave your browser, most GDPR rights are automatically satisfied. To exercise your rights, contact us at <a href="mailto:contact@wiseclick.site">contact@wiseclick.site</a>.</p>
+    <h2 style="font-size:1.15rem;margin:2rem 0 0.75rem">8. California Consumer Privacy Act (CCPA)</h2>
     <p style="font-size:0.95rem;color:#5f6368;margin-bottom:0.75rem">California residents have the right to: know what information is collected, request deletion, opt out of data sales (we do not sell data), and exercise these rights without discrimination. Contact us at <a href="mailto:contact@wiseclick.site">contact@wiseclick.site</a>.</p>
-    <h2 style="font-size:1.15rem;margin:2rem 0 0.75rem">8. Children's Privacy</h2>
+    <h2 style="font-size:1.15rem;margin:2rem 0 0.75rem">9. Children's Privacy</h2>
     <p style="font-size:0.95rem;color:#5f6368;margin-bottom:0.75rem">Our website is not directed to children under 13. We do not knowingly collect personal information from children under 13.</p>
-    <h2 style="font-size:1.15rem;margin:2rem 0 0.75rem">9. Changes to This Policy</h2>
+    <h2 style="font-size:1.15rem;margin:2rem 0 0.75rem">10. Changes to This Policy</h2>
     <p style="font-size:0.95rem;color:#5f6368;margin-bottom:0.75rem">We may update this policy. Changes will be posted on this page with a revised effective date.</p>
-    <h2 style="font-size:1.15rem;margin:2rem 0 0.75rem">10. Contact</h2>
+    <h2 style="font-size:1.15rem;margin:2rem 0 0.75rem">11. Contact</h2>
     <p style="font-size:0.95rem;color:#5f6368;margin-bottom:0.75rem">Email: <a href="mailto:contact@wiseclick.site">contact@wiseclick.site</a></p>
     <p style="font-size:0.8rem;color:#80868b;margin-top:3rem;padding-top:1rem;border-top:1px solid #dadce0">Last updated: May 14, 2026</p>
   </main>
@@ -65,5 +67,10 @@
       <p class="footer-copy">&copy; 2026 InsureWise by WiseClick. All rights reserved.</p>
     </div>
   </footer>
+  <div class="cookie-banner" id="cookie-banner">
+    <p>We use cookies for analytics and advertising. By continuing, you agree to our <a href="/privacy/">Privacy Policy</a>.</p>
+    <button class="cookie-btn" onclick="document.getElementById('cookie-banner').classList.add('hidden');localStorage.setItem('cookie-consent','1')">Accept</button>
+  </div>
+  <script>if(localStorage.getItem('cookie-consent'))document.getElementById('cookie-banner').classList.add('hidden');</script>
 </body>
 </html>
