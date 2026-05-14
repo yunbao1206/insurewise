@@ -63,6 +63,7 @@
     <div class="calc-page">
       <h1>Pet Insurance Calculator</h1>
       <p class="subtitle">Estimate your monthly pet insurance premium based on your pet's species, breed, age, and desired coverage.</p>
+      <p style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.5rem">InsureWise is not a licensed insurance broker. Results are estimates only, not actual quotes.</p>
       <div class="calc-tool">
         <form class="calc-form" onsubmit="return false;">
           <div class="form-group">
@@ -152,9 +153,9 @@
           <div class="cta-card">
             <div class="cta-icon">🐾</div>
             <h3>Compare Pet Insurance Plans</h3>
-            <p>Get quotes from top pet insurance providers. Compare coverage, deductibles, and prices.</p>
-            <a href="#AFFILIATE_LINK_PLACEHOLDER" class="cta-button" target="_blank" rel="noopener sponsored">Get Free Quotes</a>
-            <p class="affiliate-disclosure">We may earn a referral fee if you request a quote.</p>
+            <p>Get estimates from top pet insurance providers. Compare coverage, deductibles, and prices.</p>
+            <p class="affiliate-disclosure">We earn a referral fee if you request a quote. This does not affect our calculator results.</p>
+            <a href="#AFFILIATE_LINK_PLACEHOLDER" class="cta-button" target="_blank" rel="noopener sponsored">Connect with Providers</a>
           </div>
         </div>
       </div>
@@ -246,16 +247,14 @@ function calculate() {
   const limitVal = limit === 'unlimited' ? 30000 : parseInt(limit) * 1;
   const dedVal = parseInt(ded);
   const reimPct = parseInt(reim) / 100;
-  const oopMax = dedVal + (limitVal * (1 - reimPct));
   const claimExample = 2000 * reimPct;
 
   document.getElementById('monthly').textContent = fmt(monthly);
   document.getElementById('annual').textContent = fmt(annual);
   document.getElementById('coverage-val').textContent = limit === 'unlimited' ? 'Unlimited' : fmt(limitVal);
-  document.getElementById('oop-max').textContent = fmt(oopMax);
-  document.getElementById('reimburse-example').textContent = fmt(claimExample) + ' (on $2,000 claim)';
+  document.getElementById('oop-max').textContent = limit === 'unlimited' ? 'Uncapped (deductible only: ' + fmt(dedVal) + ')' : fmt(dedVal + (limitVal * (1 - reimPct)));
+  document.getElementById('reimburse-example').textContent = fmt(claimExample) + ' (example on $2,000 claim)';
   document.getElementById('results').classList.add('visible');
-  document.getElementById('cta-section').classList.add('visible');
 }
 calculate();
 </script>
