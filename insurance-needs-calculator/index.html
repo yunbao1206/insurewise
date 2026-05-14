@@ -62,6 +62,7 @@
     <div class="calc-page">
       <h1>Insurance Needs Calculator</h1>
       <p class="subtitle">Get a personalized assessment of your insurance coverage gaps and priorities.</p>
+      <p style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.5rem">InsureWise is not a licensed insurance broker. Results are estimates only, not actual quotes.</p>
       <div class="calc-tool">
         <form class="calc-form" onsubmit="return false;">
           <div class="form-group">
@@ -150,8 +151,8 @@
             <div class="cta-icon">🛡️</div>
             <h3>Get Personalized Recommendations</h3>
             <p>Connect with insurance professionals who can help fill your coverage gaps.</p>
-            <a href="#AFFILIATE_LINK_PLACEHOLDER" class="cta-button" target="_blank" rel="noopener sponsored">Get Recommendations</a>
-            <p class="affiliate-disclosure">We may earn a referral fee for recommendations.</p>
+            <p class="affiliate-disclosure">We earn a referral fee for recommendations. This does not affect our assessment.</p>
+            <a href="#AFFILIATE_LINK_PLACEHOLDER" class="cta-button" target="_blank" rel="noopener sponsored">Connect with Providers</a>
           </div>
         </div>
       </div>
@@ -207,7 +208,7 @@ function calculate() {
   const income = parseFloat(document.getElementById('income').value) || 0;
   const age = parseInt(document.getElementById('age').value) || 35;
   const ownHome = document.getElementById('own-home').value === 'yes';
-  const homeValue = parseFloat(document.getElementById('home-value').value) || 0;
+  const homeValue = ownHome ? (parseFloat(document.getElementById('home-value').value) || 0) : 0;
   const ownVehicle = document.getElementById('own-vehicle').value === 'yes';
   const debts = parseFloat(document.getElementById('debts').value) || 0;
   const savingsVal = parseFloat(document.getElementById('savings').value) || 0;
@@ -231,6 +232,10 @@ function calculate() {
     total++;
     if (hasHome) { covered++; cards.push({t:'Home Insurance',s:'covered',m:'Your home is insured.'}); }
     else cards.push({t:'Home Insurance',s:'gap',m:'No homeowners insurance. Your home is at risk.'});
+  } else {
+    total++;
+    if (hasHome) { covered++; cards.push({t:'Renters Insurance',s:'covered',m:'You have renters insurance.'}); }
+    else cards.push({t:'Renters Insurance',s:'gap',m:'No renters insurance. Protects your belongings from theft, fire, and liability.'});
   }
   total++;
   if (hasHealth || empHealth) { covered++; cards.push({t:'Health Insurance',s:'covered',m: empHealth ? 'Covered through employer.' : 'You have health coverage.'}); }
@@ -262,7 +267,6 @@ function calculate() {
   });
   document.getElementById('status-cards').innerHTML = html;
   document.getElementById('results').classList.add('visible');
-  document.getElementById('cta-section').classList.add('visible');
 }
 toggleConditional();
 calculate();
