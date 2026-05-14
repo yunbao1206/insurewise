@@ -63,6 +63,7 @@
     <div class="calc-page">
       <h1>Travel Insurance Calculator</h1>
       <p class="subtitle">Estimate your travel insurance cost based on your trip details, destination, and coverage preferences.</p>
+      <p style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.5rem">InsureWise is not a licensed insurance broker. Results are estimates only, not actual quotes.</p>
       <div class="calc-tool">
         <form class="calc-form" onsubmit="return false;">
           <div class="form-group">
@@ -155,9 +156,9 @@
           <div class="cta-card">
             <div class="cta-icon">✈️</div>
             <h3>Compare Travel Insurance Plans</h3>
-            <p>Get instant quotes from top travel insurance providers. Find the best coverage for your trip.</p>
-            <a href="#AFFILIATE_LINK_PLACEHOLDER" class="cta-button" target="_blank" rel="noopener sponsored">Get Free Quotes</a>
-            <p class="affiliate-disclosure">We may earn a referral fee if you purchase a policy.</p>
+            <p>Get estimates from top travel insurance providers. Find the best coverage for your trip.</p>
+            <p class="affiliate-disclosure">We earn a referral fee if you purchase a policy. This does not affect our calculator results.</p>
+            <a href="#AFFILIATE_LINK_PLACEHOLDER" class="cta-button" target="_blank" rel="noopener sponsored">Connect with Providers</a>
           </div>
         </div>
       </div>
@@ -212,7 +213,7 @@
 <script>
 const fmt = v => '$' + v.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
 function calculate() {
-  const tripCost = parseFloat(document.getElementById('trip-cost').value) || 3000;
+  const tripCost = Math.max(100, parseFloat(document.getElementById('trip-cost').value) || 3000);
   const length = document.getElementById('trip-length').value;
   const dest = document.getElementById('destination').value;
   const travelers = document.getElementById('travelers').value;
@@ -254,7 +255,6 @@ function calculate() {
   document.getElementById('med-coverage').textContent = fmt(parseInt(med));
   document.getElementById('evac-coverage').textContent = fmt(parseInt(evac));
   document.getElementById('results').classList.add('visible');
-  document.getElementById('cta-section').classList.add('visible');
 }
 calculate();
 </script>
