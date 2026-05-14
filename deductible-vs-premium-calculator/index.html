@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deductible vs Premium Calculator - Find Your Best Option</title>
+  <meta name="description" content="Free deductible vs premium calculator. Compare high and low deductible options side by side to find your best insurance choice.">
+  <meta name="keywords" content="deductible vs premium calculator, high vs low deductible, insurance deductible comparison, break even deductible">
+  <link rel="canonical" href="https://insure.wiseclick.site/deductible-vs-premium-calculator/">
+  <meta property="og:title" content="Deductible vs Premium Calculator">
+  <meta property="og:description" content="Compare high vs low deductible options to find your best insurance choice.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Deductible vs Premium Calculator",
+    "description": "Compare insurance deductible and premium options",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Should I choose a high or low deductible?", "acceptedAnswer": { "@type": "Answer", "text": "Choose a high deductible if you have emergency savings and want lower monthly premiums. Choose a low deductible if you prefer predictable costs and can afford higher premiums." } },
+      { "@type": "Question", "name": "What is the break-even point for deductibles?", "acceptedAnswer": { "@type": "Answer", "text": "The break-even point is when the premium savings from a higher deductible equals the extra deductible cost if you file a claim. Our calculator finds this for you." } },
+      { "@type": "Question", "name": "How do deductibles work with multiple claims?", "acceptedAnswer": { "@type": "Answer", "text": "Most auto and home policies apply the deductible per claim, not per year. Health insurance typically has an annual deductible that resets each plan year." } }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        InsureWise
+      </a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/auto-insurance-calculator/">Auto</a></li>
+        <li><a href="/life-insurance-calculator/">Life</a></li>
+        <li><a href="/home-insurance-calculator/">Home</a></li>
+        <li><a href="/health-insurance-calculator/">Health</a></li>
+        <li><a href="/insurance-needs-calculator/">Needs</a></li>
+        <li><a href="/deductible-vs-premium-calculator/" class="active">Deductible</a></li>
+      </ul>
+    </div>
+  </header>
+  <main>
+    <nav class="breadcrumb"><a href="/">Home</a> / <span>Deductible vs Premium Calculator</span></nav>
+    <div class="calc-page">
+      <h1>Deductible vs Premium Calculator</h1>
+      <p class="subtitle">Compare two insurance options side by side to find your best deductible and premium combination.</p>
+      <div class="calc-tool">
+        <form class="calc-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="type">Insurance Type</label>
+            <select id="type">
+              <option value="auto" selected>Auto Insurance</option>
+              <option value="home">Home Insurance</option>
+              <option value="health">Health Insurance</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="claims">Expected Claims Per Year</label>
+            <select id="claims">
+              <option value="0" selected>0 (no claims expected)</option>
+              <option value="0.2">0.2 (1 claim every 5 years)</option>
+              <option value="0.5">0.5 (1 claim every 2 years)</option>
+              <option value="1">1 per year</option>
+              <option value="2">2 per year</option>
+              <option value="3">3+ per year</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="years">Years to Compare</label>
+            <select id="years">
+              <option value="1">1 year</option>
+              <option value="3">3 years</option>
+              <option value="5" selected>5 years</option>
+              <option value="10">10 years</option>
+            </select>
+          </div>
+          <div class="form-group full-width" style="margin-top:0.5rem"><label style="font-size:0.9rem;font-weight:600;color:var(--text)">Option A (Higher Premium, Lower Deductible)</label></div>
+          <div class="form-group">
+            <label for="premium-a">Annual Premium ($)</label>
+            <input type="number" id="premium-a" value="1800" min="0" step="100">
+          </div>
+          <div class="form-group">
+            <label for="deductible-a">Deductible ($)</label>
+            <input type="number" id="deductible-a" value="500" min="0" step="100">
+          </div>
+          <div class="form-group full-width" style="margin-top:0.5rem"><label style="font-size:0.9rem;font-weight:600;color:var(--text)">Option B (Lower Premium, Higher Deductible)</label></div>
+          <div class="form-group">
+            <label for="premium-b">Annual Premium ($)</label>
+            <input type="number" id="premium-b" value="1200" min="0" step="100">
+          </div>
+          <div class="form-group">
+            <label for="deductible-b">Deductible ($)</label>
+            <input type="number" id="deductible-b" value="2000" min="0" step="100">
+          </div>
+          <button type="button" class="btn-calculate" onclick="calculate()">Compare Options</button>
+        </form>
+        <div class="calc-results" id="results">
+          <div class="result-highlight">
+            <div class="label" id="winner-label">Best Option</div>
+            <div class="value" id="savings">$0 savings</div>
+          </div>
+          <div class="comparison-grid">
+            <div class="comparison-column" id="col-a">
+              <h4>Option A <span id="badge-a"></span></h4>
+              <div class="metric"><span>Annual Premium</span><span class="val" id="a-prem">$0</span></div>
+              <div class="metric"><span>Deductible</span><span class="val" id="a-ded">$0</span></div>
+              <div class="metric"><span>Total Premiums</span><span class="val" id="a-total-prem">$0</span></div>
+              <div class="metric"><span>Deductible Costs</span><span class="val" id="a-total-ded">$0</span></div>
+              <div class="metric"><span>Total Cost</span><span class="val" id="a-total">$0</span></div>
+            </div>
+            <div class="comparison-column" id="col-b">
+              <h4>Option B <span id="badge-b"></span></h4>
+              <div class="metric"><span>Annual Premium</span><span class="val" id="b-prem">$0</span></div>
+              <div class="metric"><span>Deductible</span><span class="val" id="b-ded">$0</span></div>
+              <div class="metric"><span>Total Premiums</span><span class="val" id="b-total-prem">$0</span></div>
+              <div class="metric"><span>Deductible Costs</span><span class="val" id="b-total-ded">$0</span></div>
+              <div class="metric"><span>Total Cost</span><span class="val" id="b-total">$0</span></div>
+            </div>
+          </div>
+          <div style="margin-top:1.5rem;padding:1rem;background:var(--bg-secondary);border-radius:var(--radius-sm)">
+            <p id="break-even" style="font-size:0.9rem;color:var(--text-secondary);margin:0"></p>
+          </div>
+        </div>
+        <div class="cta-section" id="cta-section">
+          <div class="cta-card">
+            <div class="cta-icon">🛡️</div>
+            <h3>Find Your Best Rate</h3>
+            <p>Compare insurance quotes with different deductible options from top providers.</p>
+            <a href="#AFFILIATE_LINK_PLACEHOLDER" class="cta-button" target="_blank" rel="noopener sponsored">Get Free Quotes</a>
+            <p class="affiliate-disclosure">We may earn a referral fee if you request a quote.</p>
+          </div>
+        </div>
+      </div>
+      <div class="seo-content">
+        <div class="seo-block">
+          <h2>High vs Low Deductible: Which Is Better?</h2>
+          <p>There's no one-size-fits-all answer. It depends on your expected claims, emergency savings, and risk tolerance. Use this calculator to see the actual numbers for your situation.</p>
+        </div>
+        <div class="seo-block">
+          <h2>How to Choose the Right Deductible</h2>
+          <ul>
+            <li><strong>Choose high deductible if:</strong> You have emergency savings, rarely file claims, and want lower monthly costs</li>
+            <li><strong>Choose low deductible if:</strong> You prefer predictable costs, expect to file claims, or lack savings</li>
+            <li><strong>Break-even point:</strong> If you file more claims than the break-even threshold, the lower deductible saves money</li>
+          </ul>
+        </div>
+        <div class="seo-block full-width">
+          <h2>Frequently Asked Questions</h2>
+          <h3>Should I choose a high or low deductible?</h3>
+          <p>Choose a high deductible if you have emergency savings and want lower premiums. Choose a low deductible if you prefer predictable costs and can afford higher premiums.</p>
+          <h3>What is the break-even point for deductibles?</h3>
+          <p>It's when the premium savings from a higher deductible equal the extra deductible cost if you file a claim. Our calculator computes this for you.</p>
+          <h3>How do deductibles work with multiple claims?</h3>
+          <p>Auto and home deductibles apply per claim. Health insurance typically has an annual deductible that resets each year.</p>
+        </div>
+        <div class="seo-block full-width" style="background:var(--bg-secondary);border-style:dashed;margin-top:1rem">
+          <h2>Disclaimer</h2>
+          <p>This calculator is for <strong>educational purposes only</strong>. Actual insurance costs and claim patterns vary. Consult a licensed agent for personalized advice.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 InsureWise by WiseClick. All rights reserved.</p>
+    </div>
+  </footer>
+<script>
+const fmt = v => '$' + v.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+function calculate() {
+  const premA = parseFloat(document.getElementById('premium-a').value) || 0;
+  const dedA = parseFloat(document.getElementById('deductible-a').value) || 0;
+  const premB = parseFloat(document.getElementById('premium-b').value) || 0;
+  const dedB = parseFloat(document.getElementById('deductible-b').value) || 0;
+  const claims = parseFloat(document.getElementById('claims').value) || 0;
+  const years = parseInt(document.getElementById('years').value) || 5;
+  const totalPremA = premA * years;
+  const totalPremB = premB * years;
+  const totalDedA = dedA * claims * years;
+  const totalDedB = dedB * claims * years;
+  const costA = totalPremA + totalDedA;
+  const costB = totalPremB + totalDedB;
+  const aWins = costA <= costB;
+  const savings = Math.abs(costA - costB);
+  document.getElementById('winner-label').textContent = aWins ? 'Option A Saves More' : 'Option B Saves More';
+  document.getElementById('savings').textContent = fmt(savings) + ' over ' + years + ' years';
+  document.getElementById('col-a').className = 'comparison-column' + (aWins ? ' winner' : '');
+  document.getElementById('col-b').className = 'comparison-column' + (!aWins ? ' winner' : '');
+  document.getElementById('badge-a').innerHTML = aWins ? '<span class="winner-badge">Best Choice</span>' : '';
+  document.getElementById('badge-b').innerHTML = !aWins ? '<span class="winner-badge">Best Choice</span>' : '';
+  document.getElementById('a-prem').textContent = fmt(premA) + '/yr';
+  document.getElementById('a-ded').textContent = fmt(dedA);
+  document.getElementById('a-total-prem').textContent = fmt(totalPremA);
+  document.getElementById('a-total-ded').textContent = fmt(totalDedA);
+  document.getElementById('a-total').textContent = fmt(costA);
+  document.getElementById('b-prem').textContent = fmt(premB) + '/yr';
+  document.getElementById('b-ded').textContent = fmt(dedB);
+  document.getElementById('b-total-prem').textContent = fmt(totalPremB);
+  document.getElementById('b-total-ded').textContent = fmt(totalDedB);
+  document.getElementById('b-total').textContent = fmt(costB);
+  const premDiff = Math.abs(premA - premB);
+  const dedDiff = Math.abs(dedA - dedB);
+  const breakEven = premDiff > 0 ? (dedDiff / premDiff).toFixed(1) : 'N/A';
+  const beOption = premA > premB ? 'A (higher premium)' : 'B (higher premium)';
+  document.getElementById('break-even').textContent = 'Break-even: If you file more than ' + breakEven + ' claims per year, the lower deductible option (' + beOption + ') saves money. With 0 claims over ' + years + ' years, Option A costs ' + fmt(totalPremA) + ' and Option B costs ' + fmt(totalPremB) + '.';
+  document.getElementById('results').classList.add('visible');
+  document.getElementById('cta-section').classList.add('visible');
+}
+calculate();
+</script>
+</body>
+</html>
