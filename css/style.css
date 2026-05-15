@@ -700,4 +700,6 @@ main {
   white-space: nowrap;
 }
 .cookie-btn:hover { background: #e8e8e8; }
+.cookie-reject { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.5); }
+.cookie-reject:hover { background: rgba(255,255,255,0.1); }
 .cookie-banner.hidden { display: none; }
